@@ -1,0 +1,18 @@
+sources:
+  - name: BackendService
+    handler:
+      openapi:
+        baseUrl: http://localhost:3002/
+        source: ../../../backend-service/openapi3-definition.json
+        operationHeaders:
+          myheader: '{context.req.headers["myheader"]}'
+    transforms:
+      - resolversComposition: # https://www.graphql-mesh.com/docs/transforms/resolvers-composition
+          mode: bare
+          compositions:
+            - resolver: 'Query.*'
+              composer: ../middlewares/middlewares#addTenantIdAndInstanceIdToHeader
+            - resolver: 'Mutation.*'
+              composer: ../middlewares/middlewares#addTenantIdAndInstanceIdToHeader
+serve:
+  customServerHandler: '../servers/fastify-apollo-server' # make sure to un-mark additionalResolvers "../resolvers/resolvers"

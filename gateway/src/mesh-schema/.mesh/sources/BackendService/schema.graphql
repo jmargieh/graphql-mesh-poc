@@ -1,0 +1,12 @@
+schema {
+  query: Query
+}
+
+type Query {
+  """
+  
+  
+  Equivalent to GET /hello/{name}
+  """
+  hello(name: String!): String
+}

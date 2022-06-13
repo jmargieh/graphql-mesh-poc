@@ -1,0 +1,32 @@
+{
+  "name": "graphql-mesh",
+  "version": "1.0.0",
+  "scripts": {
+    "build-mesh": "cd src/mesh-schema && mesh build",
+    "build": "npm run build-mesh && rm -rf dist && tsc -p tsconfig.json",
+    "start": "cd src/mesh-schema && mesh start --port=4005",
+    "start:dev": "cd src/mesh-schema && mesh dev --port=4005"
+  },
+  "dependencies": {
+    "@graphql-mesh/cli": "^0.72.1",
+    "@graphql-mesh/graphql": "^0.27.1",
+    "@graphql-mesh/openapi": "^0.26.1",
+    "@graphql-mesh/transform-filter-schema": "^0.14.61",
+    "@graphql-mesh/transform-resolvers-composition": "^0.12.61",
+    "@graphql-yoga/node": "^2.9.1",
+    "apollo-server": "^3.8.2",
+    "apollo-server-core": "^3.8.2",
+    "apollo-server-fastify": "^3.8.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-graphql": "^0.12.0",
+    "fastify": "^3.27.4",
+    "graphql": "^16.5.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.8.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.7.3",
+    "dotenv": "^16.0.1"
+  }
+}

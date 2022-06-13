@@ -1,0 +1,4 @@
+type Query {
+  "\n\nEquivalent to GET /hello/{name}"
+  hello(name: String!): String
+}
